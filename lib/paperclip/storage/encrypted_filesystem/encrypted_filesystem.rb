@@ -19,6 +19,10 @@ module Paperclip
         yield configuration
       end
 
+      def self.reset_config!
+        @configuration = nil
+      end
+
       def flush_writes
         validate_instance_methods!
         @queued_for_write.each do |style_name, file|

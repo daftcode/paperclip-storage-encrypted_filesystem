@@ -6,5 +6,7 @@
 /doc/
 /pkg/
 /spec/reports/
+/spec/files/tmp
 /tmp/
 /.idea/
+.ruby-gemset
