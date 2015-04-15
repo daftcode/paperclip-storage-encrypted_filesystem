@@ -19,6 +19,7 @@ Your Paperclip models will need two additional binary columns: `paperclip_encryp
         change_table :my_models do |t|
           t.binary :paperclip_encryption_iv
           t.binary :paperclip_encryption_key
+        end
       end
     end
 
