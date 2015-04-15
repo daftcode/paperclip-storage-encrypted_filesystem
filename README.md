@@ -30,6 +30,7 @@ When you save or update your attachments, Paperclip will encrypt them automatica
 In order to decrypt your data, you have to use the `decrypt` method that comes with `FileDecryptor` mix-in.
 
     binary_image = model_instance.decrypt(:attachment_name)
+    thumb = model_instance.decrypt(:attachment_name, type: :thumb)
 
 If you need to process the encryption key in any way before saving the attachment (i.e. encrypt it asymmetrically),
 there is an option to pass a block in configuration:
