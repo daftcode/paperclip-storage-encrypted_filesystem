@@ -12,6 +12,18 @@ And then execute:
 
     $ bundle
 
+Your Paperclip models will need two additional binary columns: `paperclip_encryption_key` and `paperclip_encryption_iv` to store encryption secrets.
+
+    class AddPaperclipEncryptionKeyAndPaperclipEncryptionIvToMyModel < ActiveRecord::Migration
+      def change
+        change_table :my_models do |t|
+          t.binary :paperclip_encryption_iv
+          t.binary :paperclip_encryption_key
+      end
+    end
+
+Optionally, you can skip the migration part and define getter methods for the key and iv fields in your models.
+
 ## Usage
 
 Configure your Paperclip attachments to use the `storage: :encrypted_filesystem` option. Remember to include helper modules.
