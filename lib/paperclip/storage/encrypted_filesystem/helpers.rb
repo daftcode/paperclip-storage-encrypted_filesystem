@@ -2,7 +2,7 @@ module Paperclip
   module Storage
     module EncryptedFilesystem
 
-      module PaperclipEncryptionHelpers
+      module Helpers
         extend ActiveSupport::Concern
 
         included do

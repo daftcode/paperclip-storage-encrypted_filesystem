@@ -10,7 +10,8 @@ end
 def create_dummy_klass
   Class.new(ActiveRecord::Base) do
     include Paperclip::Glue
-    include Paperclip::Storage::EncryptedFilesystem::PaperclipEncryptionHelpers
+    include Paperclip::Storage::EncryptedFilesystem::Helpers
+    include Paperclip::Storage::EncryptedFilesystem::FileDecryptor
     has_attached_file :image, storage: :encrypted_filesystem, path: "spec/files/tmp/:class/:attachment/:style/:filename"
     do_not_validate_attachment_file_type :image
   end

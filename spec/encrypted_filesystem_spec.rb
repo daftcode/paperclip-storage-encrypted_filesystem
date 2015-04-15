@@ -52,9 +52,7 @@ describe Paperclip::Storage::EncryptedFilesystem do
       instance.image = doge
       instance.save!
 
-      saved_doge = File.open(instance.image.path, 'rb')
-
-      real_doge = Encryptoid.decrypt(saved_doge.read, key: instance.paperclip_encryption_key, iv: instance.paperclip_encryption_iv)
+      real_doge = instance.decrypt(:image)
       expect(real_doge).to eq doge.read
     end
 
