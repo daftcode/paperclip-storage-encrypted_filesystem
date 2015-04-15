@@ -17,13 +17,14 @@ And then execute:
 Configure your Paperclip attachments to use the `storage: :encrypted_filesystem` option. Remember to include helper modules.
 
     class MyModel < ActiveRecord::Base
-    include Paperclip::Storage::EncryptedFilesystem::Helpers
-    include Paperclip::Storage::EncryptedFilesystem::FileDecryptor
-
-    has_attached_file :photo,
-                      :storage => :encrypted_filesystem,
-                      :styles => {thumb: '303x224#', original: '2800x2800>'}
-                      # other options
+      include Paperclip::Storage::EncryptedFilesystem::Helpers
+      include Paperclip::Storage::EncryptedFilesystem::FileDecryptor
+      
+      has_attached_file :photo,
+                        :storage => :encrypted_filesystem,
+                        :styles => {thumb: '303x224#', original: '2800x2800>'}
+                        # other options
+    end
 
 When you save or update your attachments, Paperclip will encrypt them automatically.
 In order to decrypt your data, you have to use the `decrypt` method that comes with `FileDecryptor` mix-in.
